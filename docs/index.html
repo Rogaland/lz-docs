@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ACE Documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <!-- <link rel="stylesheet" href="//unpkg.com/docsify/themes/buble.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+    <style>
+      :root {
+        /* Reduce the font size */
+        /* --base-font-size: 1px; */
+
+        /* Change the theme color hue (0-360) */
+        /* --theme-hue: 325; */
+
+        /* Add sidebar navigation bullets */
+        /* --sidebar-nav-link-before-content-l1: "😀"; */
+        /* --sidebar-nav-link-before-content-l2: "💩"; */
+      }
+    </style>
+  </head>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
+
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: "Azure LZ Documentation",
+        repo: "Rogaland/lz-docs",
+        loadSidebar: true,
+        loadSidebar: "_sidebar.md",
+        // loadNavbar: true,
+        // loadNavbar: 'nav.md',
+        search: "auto",
+        homepage: "getting-started.md",
+        subMaxLevel: 2,
+        logo: "_media/rfk-logo-transparent.svg",
+        relativePath: true,
+        // auto2top: true,
+        formatUpdated: "{DD}/{MM} {HH}:{mm}",
+        plugins: [
+          EditOnGithubPlugin.create(
+            "https://github.com/rogaland/lz-docs/blob/main/"
+          ),
+        ],
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="https://unpkg.com/docsify-themeable"></script>
+    <!-- <link rel="stylesheet" href="//unpkg.com/docsify/themes/buble.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
+    />
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bicep.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-powershell.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- Plugins -->
+    <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+    <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  </body>
+</html>
