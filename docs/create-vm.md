@@ -21,9 +21,9 @@ To create the Virtual Machine (VM), we first need to create dependent resources:
 
 First we will be making a `Network Security Group` (NSG). This resource works as a software defined firewall and in this resource you will need to define the allowed traffic to your **subnet**.
 
-    NOTE: The NSG should is applied to the subnet, not the individual resource. 
-    This imples that all inbound/outbound rules in the NSG will be applied to the entire subnet. 
-    Thus your rules should be as specific as possible to avoid allowing unwanted traffic. 
+    NOTE: The NSG should is applied to the subnet, not the individual resource.
+    This imples that all inbound/outbound rules in the NSG will be applied to the entire subnet.
+    Thus your rules should be as specific as possible to avoid allowing unwanted traffic.
 
 Start by searching for `nsg` in the search field of the portal.
 
@@ -39,14 +39,13 @@ Fill in the correct details for your network security group:
 - **Resource group**: lz-network-westeurope
 - **Name**: some name that best decribe what the nsg is used for. IE `lz-network-westeurope-vnet-vm-subnet-linux-nsg`
 
-***Best practise: Try to adhere to naming convention by including name of vnet as well.***
+**_Best practise: Try to adhere to naming convention by including name of vnet as well._**
 
 Then click `Review + create`
 
 ![image](https://user-images.githubusercontent.com/48277303/183914856-53ada3e0-d92d-47df-bc14-e018ec01a8c8.png)
 Then wait for the validation to pass and then click `Create`.
 The NSG can also be found in the next step of the guide.
-
 
 ![image](https://user-images.githubusercontent.com/48277303/183914812-7259a39a-00c7-4987-9e76-f5e68f61c6eb.png)
 After the creation of the NSG, you can `Go to resource` if you want to see the NSG you just created.
@@ -55,7 +54,7 @@ After the creation of the NSG, you can `Go to resource` if you want to see the N
 
 Navigate to the subscription you are working on.
 
-Management groups -> RFK -> Landing Zones -> External -> *your subscription*
+Management groups -> RFK -> Landing Zones -> External -> _your subscription_
 
 ![image](https://user-images.githubusercontent.com/48277303/183623731-0d458ec9-4321-42d2-aa00-e609e8bf6944.png)
 
@@ -95,7 +94,7 @@ Click `+ Create` and then `Azure virtual machine`
 
 - **Subscription**: Name of your subscription
 - **Resource group**: `Create new` Add a name here that describes the collection of resources. IE `vm-linux`
-  - ***Best practise: The resources within the resource group should have the same lifecycle. IE. Created together and deleted together.***
+  - **_Best practise: The resources within the resource group should have the same lifecycle. IE. Created together and deleted together._**
 - **Virtual machine name**: Name of the VM
   - Note: Strict limitations in naming inside guest OS.
     - Maximum characters:
@@ -104,10 +103,9 @@ Click `+ Create` and then `Azure virtual machine`
     - Example: p-hyperion-app1
 - **VM image and size**: Here you need to chose which image and size you want the VM to be. [VM Size overview](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes)
 - **Admin account**: Chose a username and password, used for logging in to the VM.
-  - ***Best practice: Create an Azure Key Vault and store the username and password as secrets***
+  - **_Best practice: Create an Azure Key Vault and store the username and password as secrets_**
 
 ![image](https://user-images.githubusercontent.com/48277303/183914119-78c8450f-3c0c-4c4f-8a2d-d019a20ca8e7.png)
-
 
 #### Configure the virtual machine disks
 
@@ -125,9 +123,29 @@ Click `+ Create` and then `Azure virtual machine`
 
 ![image](https://user-images.githubusercontent.com/48277303/183845750-381444d1-42ea-4b3b-99aa-11ec1dd395b7.png)
 
-Change more of the settings if needed, when done click `Review + create`, wait for verification of the VM, if successful you get a overview of the VM. If this looks good, you click the `Create` button to deploy the VM.'
+Change more of the settings if needed, when done click `Review + create`, wait for verification of the VM, if successful you get a overview of the VM. If this looks good, you click the `Create` button to deploy the VM.
 
-If you are unsure of any of these steps, try the *Useful links* below, or consult with Rogaland IT for assistance.
+If you are unsure of any of these steps, try the _Useful links_ below, or consult with Rogaland IT for assistance.
+
+## Accessing the virtual machine
+
+To access the VM we use [Azure Bastion](https://docs.microsoft.com/en-us/azure/bastion/bastion-overview).
+
+Navigate to your VM, either by clicking `Go to resource` after the deployment if finished, or by going to your subscription -> your resource group where your VM should be located.
+
+Click on `Connect`, then on the drop down menu click `Bastion`, as shown below.
+
+![image](https://user-images.githubusercontent.com/48277303/184090794-017ce48f-1444-4659-b949-7f9a76ea7ccb.png)
+
+Now fill in the **username** and **password** that you created when configuring the VM.
+
+- If you chose to save your password as a secret in a key vault, change the `Authentication Type` to `Password from Azure Key Vault`, and fill in the fields required.
+
+Then click `Connect`.
+
+![image](https://user-images.githubusercontent.com/48277303/184086128-f8efde9a-6328-4eac-8cfc-8fc9154cf7c8.png)
+
+You are now connected to your VM.
 
 ### Useful links
 
