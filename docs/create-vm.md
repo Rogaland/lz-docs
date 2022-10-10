@@ -21,7 +21,7 @@ To create the Virtual Machine (VM), we first need to create dependent resources:
 
 First we will be making a `Network Security Group` (NSG). This resource works as a software defined firewall and in this resource you will need to define the allowed traffic to your **subnet**.
 
-    NOTE: The NSG should is applied to the subnet, not the individual resource.
+    NOTE: The NSG should be applied to the subnet, not the individual resource.
     This imples that all inbound/outbound rules in the NSG will be applied to the entire subnet.
     Thus your rules should be as specific as possible to avoid allowing unwanted traffic.
 
